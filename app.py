@@ -4,11 +4,10 @@ from db import create_tables
 from flask_cors import CORS
 from routing.routes import test_route
 from routing.user_routing import user_route
-import secrets
+from key import secret_key
 
 app = Flask(__name__)
-secret_key = secrets.token_hex(16)
-print(secret_key)
+
 app.config['SECRET_KEY'] = secret_key
 app.register_blueprint(test_route)
 app.register_blueprint(user_route)
